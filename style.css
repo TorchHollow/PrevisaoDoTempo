@@ -1,0 +1,223 @@
+:root {
+    --fundo_principal: #2b72e3;
+    --texto_claro: #fff;
+    --texto_medio: #53627c;
+    --texto_escuro: #1e2432;
+    --vermelho: #e61919;
+    --vermelho_escuro: #801111;
+    --laranja: #f25607;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+}
+
+button {
+    cursor: pointer;
+}
+
+button,
+input {
+    border: none;
+    background: none;
+    outline: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    font: 1rem/1.3 "Roboto", sans-serif;
+    background: var(--fundo_principal);
+    color: var(--texto_escuro);
+    padding: 70px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.banner-superior {
+    color: var(--texto_claro);
+}
+
+.titulo {
+    font-weight: bold;
+    font-size: 4rem;
+    letter-spacing: 0.02em;
+    padding: 0 0 30px 0;
+}
+
+.banner-superior form {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.banner-superior form input {
+    font-size: 2rem;
+    height: 40px;
+    padding: 5px 5px 10px;
+    border-bottom: 1px solid;
+}
+
+.banner-superior input form::placeholder {
+    color: currentColor;
+}
+
+.banner-superior form button {
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    padding: 15px 20px;
+    margin-left: 15px;
+    border-radius: 5px;
+    background: var(--vermelho);
+    transition: background 0.3s ease-in-out
+}
+
+.banner-superior form button:hover {
+    background: var(--vermelho_escuro);
+}
+
+.banner-superior form .msg {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    max-width: 450px;
+    min-height: 40px;
+}
+
+.seletor-ajax {
+    margin: 70px 0 20px;
+}
+
+.seletor-ajax .cidades {
+    display: grid;
+    grid-gap: 32px 20px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.seletor-ajax .cidade {
+    position: relative;
+    padding: 40px 10%;
+    border-radius: 20px;
+    background: var(--texto_claro);
+    color: var(--texto_medio);
+}
+
+.seletor-ajax .cidade::after {
+    content: '';
+    width: 90%;
+    height: 50px;
+    position: absolute;
+    bottom: -12px;
+    left: 5%;
+    z-index: -1;
+    opacity: 0.3;
+    border-radius: 20px;
+    background: var(--texto_claro);
+}
+
+.seletor-ajax figcaption {
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.seletor-ajax .temperatura-da-cidade {
+    font-size: 5rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: var(--texto_escuro);
+}
+
+.seletor-ajax .cidade sup {
+    font-size: 0.5em;
+}
+
+.seletor-ajax .nome-da-cidade sup {
+    padding: 0.2em 0.6em;
+    border-radius: 30px;
+    color: var(--texto_claro);
+    background: var(--laranja);
+}
+
+.seletor-ajax .icone-da-cidade {
+    margin-top: 10px;
+    height: 100px;
+    width: 100px;
+}
+
+/* Media Querie */
+
+@media screen and (max-width: 1000px) {
+    body {
+        padding: 30px;
+    }
+
+    .seletor-ajax .cidades {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    .titulo,
+    .seletor-ajax .temperatura-da-cidade {
+        font-size: 3rem;
+    }
+
+    .seletor-ajax {
+        margin-top: 20px;
+    }
+
+    .banner-superior form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .banner-superior form input,
+    .banner-superior form button {
+        width: 100%;
+    }
+
+    .banner-superior form button {
+        margin: 20px 0 0 0;
+    }
+
+    .banner-superior form .msg {
+        position: static;
+        max-width: none;
+        min-height: 0;
+        margin-top: 10px;
+    }
+
+    .seletor-ajax .cidades {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        padding: 15px;
+    }
+
+    .seletor-ajax .cidades {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
